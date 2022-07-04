@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="./images/favicon-32x32.png" />
+  <title>Ecommerce Product</title>
+
+  <div class="loader-container ">
+    <div class="loader">Loading...</div>
+  </div>
+
+  <style>
+    .loader-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 3000;
+    }
+
+    .loader {
+      color: hsl(26, 100%, 55%);
+      font-size: 20px;
+      margin: 100px auto;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      position: relative;
+      text-indent: -9999em;
+      -webkit-animation: load4 1.3s infinite linear;
+      animation: load4 1.3s infinite linear;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    @-webkit-keyframes load4 {
+
+      0%,
+      100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+      }
+
+      12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+
+      25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+
+      37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+      }
+
+      75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+      }
+
+      87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+      }
+    }
+
+    @keyframes load4 {
+
+      0%,
+      100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+      }
+
+      12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+
+      25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+      }
+
+      37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+      }
+
+      62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+      }
+
+      75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+      }
+
+      87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+      }
+    }
+  </style>
+
+  <!-- Primary Meta Tags -->
+  <title>Mini Project by KKM</title>
+  <meta name="title" content="Mini Project by KKM">
+  <meta name="description" content="စမ်းကြည့်တာပါဗျ">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://kkm.mms-student.xyz/">
+  <meta property="og:title" content="Mini Project by KKM">
+  <meta property="og:description" content="စမ်းကြည့်တာပါဗျ">
+  <meta property="og:image" content="http://kkm.mms-student.xyz/design/desktop-previ.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="http://kkm.mms-student.xyz/">
+  <meta property="twitter:title" content="Mini Project by KKM">
+  <meta property="twitter:description" content="စမ်းကြည့်တာပါဗျ">
+  <meta property="twitter:image" content="http://kkm.mms-student.xyz/design/desktop-previ.jpg">
+
+
+  <link rel="stylesheet" href="./css/app.css">
+  <link rel="stylesheet" href="./node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="./node_modules/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="./node_modules/slick-carousel/slick/slick-theme.css">
+  <link rel="stylesheet" href="./node_modules/animate.css/animate.css">
+  <link rel="stylesheet" href="./node_modules/venobox/dist/venobox.min.css">
+  <link rel="stylesheet" href="./css/night-mode.css">
+</head>
+
+<body>
+  <section class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+
+        <header class="container mb-5">
+          <div class="row">
+            <div class="col-12">
+              <nav id="nav_dark_mode" class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">
+                    <img src="./images/logo.svg" alt="">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="">
+                      <i class="fa-solid fa-bars " style="color: hsl(26, 100%, 55%);"></i>
+                    </span>
+
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item ">
+                        <a class="nav-link  " aria-current="page" href="#">Collection</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link " href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                          aria-controls="offcanvasBottom">Men</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom"
+                          aria-controls="offcanvasBottom">Women</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAbout"
+                          aria-controls="offcanvasBottom">About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAbout"
+                          aria-controls="offcanvasBottom">Contact</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                      <div class="d-flex align-items-center">
+                        <!-- Icon -->
+                        <a class="outline-icon me-5 pop_confirm" href="#">
+                          <img src="./images/icon-cart.svg" class="w-100" alt="">
+                        </a>
+                        <!-- Avatar -->
+                        <div class="dropdown">
+                          <img src="./images/image-avatar.png" class="avatar w-50 dropdown-toggle" href="#"
+                            role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Setting</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <!-- home start -->
+        <section class="container ">
+          <div class="row screen_body">
+            <!-- image start -->
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="my-lg-4 my-xl-4 my-0 animate__animated animate__slideInLeft ani-delay-1">
+                <div class="slider-for mb-3">
+                  <a class="venobox" href="./images/image-product-1.jpg">
+                    <img src="./images/image-product-1.jpg" alt="image alt" id="slide_big_img" class=" rounded w-100">
+                  </a>
+                  <a class="venobox" href="./images/image-product-2.jpg">
+                    <img src="./images/image-product-2.jpg" alt="image alt" id="slide_big_img" class=" rounded w-100">
+                  </a>
+                  <a class="venobox" href="./images/image-product-3.jpg">
+                    <img src="./images/image-product-3.jpg" alt="image alt" id="slide_big_img" class=" rounded w-100">
+                  </a>
+                  <a class="venobox" href="./images/image-product-4.jpg">
+                    <img src="./images/image-product-4.jpg" alt="image alt" id="slide_big_img" class=" rounded w-100">
+                  </a>
+                </div>
+                <div class="slider-nav ms-2">
+                  <img src="./images/image-product-1-thumbnail.jpg" alt="" id="nav_small_img"
+                    class="rounded nav_img me-3">
+                  <img src="./images/image-product-2-thumbnail.jpg" alt="" id="nav_small_img"
+                    class="rounded nav_img me-3">
+                  <img src="./images/image-product-3-thumbnail.jpg" alt="" id="nav_small_img"
+                    class="rounded nav_img me-3">
+                  <img src="./images/image-product-4-thumbnail.jpg" alt="" id="nav_small_img"
+                    class="rounded nav_img me-3">
+                </div>
+              </div>
+            </div>
+            <!-- image end -->
+            <!-- text start -->
+            <div class="col-12 col-lg-6 col-xl-6">
+              <div class="my-lg-5 my-xl-5 my-0 py-5">
+                <p class="text-uppercase text-primary fw-bold animate__animated animate__bounceInDown ani-delay-1">
+                  Sneaker Company</p>
+                <h1 id="dark_mode_title"
+                  class="fw-bolder text-black mb-5 animate__animated animate__zoomIn animate__delay-1s">Fall Limited
+                  Edition <br> Sneakers</h1>
+                <p id="dark_mode_text" class="text-black-50 w-75 mb-4  animate__animated animate__slideInRight">
+                  These low-profile sneakers are your perfect casual wear companion. Featuring a
+                  durable rubber outer sole, they’ll withstand everything the weather can offer.
+                </p>
+                <div class="d-flex  align-items-center ">
+                  <h3 id="dark_mode_price" class="fw-bold"> $125.00</h3>
+                  <h6
+                    class="text-primary ms-3 fw-bolder bg-secondary px-2 py-1 rounded-5  animate__animated animate__bounceIn"
+                    style="animation-iteration-count: infinite;">50%</h6>
+                </div>
+                <p id="dark_mode_price_cheap" class="text-decoration-line-through text-black-50 mb-4">$250.00</p>
+                <div class="">
+                  <div class="input-counter d-inline-block rounded-5 me-3 shadow">
+                    <span class="minus-btn py-3 rounded-5"><i class="fas fa-minus text-primary rounded-5"></i></span>
+                    <input type="text" class="py-3 rounded-5" value="0">
+                    <span class="plus-btn py-3 rounded-5 "><i class="fas fa-plus text-primary rounded-5"></i></span>
+                  </div>
+                  <a href="" class="btn btn-primary  rounded text-light mt-3 mt-md-0 mt-lg-0 mt-xl-0 px-5 py-3">
+                    <i class="fas fa-shopping-cart px-2"></i>
+                    <p class="mb-0 px-3  fw-bold d-inline-block">Add to cart</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- text end -->
+          </div>
+        </section>
+        <!-- home end -->
+        <!-- offcanvas start -->
+        <section class="container">
+          <div class="row">
+            <div class="col-12">
+              <!-- offcanvas men women start -->
+              <div class="offcanvas  offcanvas-bottom bg-primary h-75 " tabindex="-1" id="offcanvasBottom"
+                aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header d-flex justify-content-end ">
+                  <button type="button" class="btn btn-primary  " data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-xmark text-light"></i>
+                  </button>
+                </div>
+                <div
+                  class="d-flex py-0 py-md-0 flex-column flex-md-row flex-lg-row flex-xl-row  justify-content-around  w-100 px-5">
+                  <div class="mt-3">
+                    <h3 class="offcanvas-title  fw-bolder text-light" id="offcanvasTopLabel">Shoes</h3>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li>
+                        <p class="text-light fw-bolder mb-2">By Activity</p>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Road Running</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Trail Running</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Hiking</a>
+                      </li>
+                    </ul>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li>
+                        <p class="text-light fw-bolder mb-2 ">Best For</p>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Support</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Training</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Race</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Active Life</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Waterproof</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mt-3">
+                    <h3 class="offcanvas-title  fw-bolder text-light" id="offcanvasTopLabel">Apparel</h3>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li>
+                        <p class="text-light fw-bolder mb-2">By Type</p>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Tops & Hoodies</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Jackets & Vests</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Shorts</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Pants</a>
+                      </li>
+                    </ul>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li>
+                        <p class="text-light fw-bolder mb-2 ">By Activity</p>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Road Running</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Trail Running</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Hiking</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Active Life</a>
+                      </li>
+                    </ul>
+
+                  </div>
+                  <div class="mt-3">
+                    <h3 class="offcanvas-title  fw-bolder text-light" id="offcanvasTopLabel">Accessories</h3>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li>
+                        <p class="text-light fw-bolder mb-2">By Type</p>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Caps & Beanies</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Socks</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Magazine</a>
+                      </li>
+                      <li>
+                        <a href="#" class="text-light text-decoration-none">Gift Card</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="mt-3">
+                    <h3 class="offcanvas-title  fw-bolder text-light" id="offcanvasTopLabel">More...</h3>
+                    <ul class="d-none d-md-block d-lg-block d-xl-block py-4">
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none">New Arrivals</a>
+                      </li>
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none">Comming Soon</a>
+                      </li>
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none">Cloud Collection</a>
+                      </li>
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none">Best Sellers</a>
+                      </li>
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none">On Classics</a>
+                      </li>
+                      <li class="py-0 py-0 py-lg-2 py-xl-2">
+                        <a href="#" class="text-light  text-decoration-none text-uppercase">The Roger</a>
+                      </li>
+                      <li class="py-2">
+                        <a href="#" class="text-light  text-decoration-none">Shoe Finder</a>
+                      </li>
+                      <li class="py-2">
+                        <a href="#" class="text-light  text-decoration-none">Cyclon</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="offcanvas-body d-flex mb-5 pb-5 justify-content-end justify-content-md-center justify-content-lg-center justify-content-xl-center ">
+                  <div class="divider d-none d-md-block d-lg-block d-xl-block"></div>
+                  <p class="text-center text-light fw-bolder  mb-0">Min Ga Lar Pr! Free shipping and <br
+                      class="d-block d-md-none d-lg-none d-xl-none"> extended 30 days
+                    return period</p>
+                  <div class="divider d-none d-md-block d-lg-block d-xl-block"></div>
+                </div>
+              </div>
+              <!-- offcanvas men women end -->
+              <!-- offcanvas about contact start -->
+              <div class="offcanvas offcanvas-bottom bg-primary  h-auto" tabindex="-1" id="offcanvasBottomAbout"
+                aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header d-flex justify-content-end ">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-xmark text-light"></i>
+                  </button>
+                </div>
+                <div class="">
+                  <h3 class="text-light text-center fw-bolder ">Clients who know and <br
+                      class="d-block d-md-none d-lg-none d-xl-none"> Buy from YOU & I</h3>
+                  <div
+                    class="d-flex justify-content-start  justify-content-md-center justify-content-lg-center justify-content-xl-center my-3">
+                    <p class="text-white-50 px-5 ">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat dicta tempore error culpa quo
+                      commodi <br> repellat nemo magni sunt. Eos magni minus inventore dolores eius saepe soluta
+                      expedita praesentium a?
+                    </p>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <div class="input-group  w-auto">
+                      <div class="input-group-text">
+                        <input class="form-check-input mt-0" type="radio" value=""
+                          aria-label="Radio button for following text input">
+                      </div>
+                      <input type="text" class="form-control" placeholder="email address"
+                        aria-label="Text input with radio button">
+                    </div>
+                    <button type="button" class="btn btn-danger text-light ms-3">Subscribe</button>
+                  </div>
+                  <div class="offcanvas-body d-flex justify-content-evenly px-5 mt-3">
+                    <div class="mt-5">
+                      <p class="text-light">2022 @ YOU&I Ltd All Right Reserved</p>
+                      <p class="text-light">Registered in Burma, Myanmar</p>
+                      <p class="text-light"><strong>Company Number:</strong> 123456789</p>
+                      <p class="text-light mb-0"><strong>Address:</strong> Chan Mya Thar Si TownShip, Mandalay, Myanmar
+                      </p>
+                    </div>
+                    <br>
+                    <div class="">
+                      <iframe class=" h-100 w-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118437.27459067569!2d95.89025511150206!3d21.92821388774444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d612ebac85b%3A0x295ebac956d5e282!2sOcean%20Supercenter%20-%20Mingalar%20Mandalay!5e0!3m2!1sen!2suk!4v1656652625824!5m2!1sen!2suk"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="  flex-column-reverse flex-md-row my-3 px-5">
+                  <div class="d-flex justify-content-between w-25">
+                    <a href="" class="text-decoration-none">
+                      <i class="fa-brands text-light fa-twitter"></i>
+                    </a>
+                    <a href="" class="text-decoration-none">
+                      <i class="fa-brands text-light fa-facebook-f"></i>
+                    </a>
+                    <a href="" class="text-decoration-none">
+                      <i class="fa-brands text-light fa-instagram"></i>
+                    </a>
+                    <a href="" class="text-decoration-none">
+                      <i class="fa-brands text-light fa-pinterest-p"></i>
+                    </a>
+                  </div>
+
+                  <div class="d-flex  justify-content-between w-auto my-2 d-none d-md-none d-lg-block d-xl-block ">
+                    <a href="#" class="text-light text-decoration-none pe-5">Search</a>
+                    <a href="#" class="text-light text-decoration-none px-5">About us</a>
+                    <a href="#" class="text-light text-decoration-none px-5">How To Measure</a>
+                    <a href="#" class="text-light text-decoration-none px-5">Our Blog</a>
+                    <a href="#" class="text-light text-decoration-none px-5">Reviews</a>
+                  </div>
+                </div>
+
+              </div>
+              <!-- offcanvas about contact end -->
+            </div>
+        </section>
+        <!-- offcanvas end -->
+
+        <button class="mode-change animate__animated animate__slideInUp ani-delay-2" onclick="changeMode()">
+          <i class="fas fa-moon" id="modeIcon"></i>
+        </button>
+  </section>
+  <script src="./node_modules/jquery/dist/jquery.js"></script>
+  <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./node_modules/feather-icons/dist/feather.min.js"></script>
+  <script src="./node_modules/slick-carousel/slick/slick.min.js"></script>
+  <script src="./node_modules/venobox/dist/venobox.min.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
